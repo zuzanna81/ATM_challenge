@@ -9,5 +9,4 @@ class Atm
     @funds -= amount
   end
 
-  
 end
