@@ -7,6 +7,10 @@ describe Account do
     expect(pin_length).to eq 4
   end
 
+it 'expect to have an expiry date on initialize' do
+  exp_date = Date.today.next_year(5).strftime("%m/%y")
+  expect(exp_date).to eq '11/22'
+end
 
 
 
