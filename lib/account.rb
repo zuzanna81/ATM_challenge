@@ -4,10 +4,10 @@ class Account
   attr_accessor :pin_code, :account_status, :owner
 
 
-  def initialize(attr = {})
+  def initialize(attrs = {}) #hash that allows you to have as many arguments as you want
     @pin_code = generate_pin
     @account_status = :active
-    set_owner(attr[:owner])
+    set_owner(attrs[:owner])
   end
 
   def exp_date
@@ -28,8 +28,8 @@ private
    rand(1000..9999)
  end
 
- def set_owner(obj)
-   obj == nil ? missing_owner : @owner = obj
+ def set_owner(person)
+   person == nil ? missing_owner : @owner = person #if person missing => missing person, else owner
  end
 
  def missing_owner
