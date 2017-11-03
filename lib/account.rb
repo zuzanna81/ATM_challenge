@@ -1,11 +1,12 @@
 class Account
 
   STANDARD_VALIDITY_YRS = 5
-  attr_accessor :pin_code, :account_status, :owner
+  attr_accessor :pin_code, :balance, :account_status, :owner
 
 
   def initialize(attrs = {}) #hash that allows you to have as many arguments as you want
     @pin_code = generate_pin
+    @balance = 0
     @account_status = :active
     set_owner(attrs[:owner])
   end
