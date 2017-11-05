@@ -1,7 +1,8 @@
 class Account
 
   STANDARD_VALIDITY_YRS = 5
-  attr_accessor :pin_code, :balance, :account_status, :owner
+  attr_accessor :balance, :account_status, :owner
+  attr_reader :pin_code, :exp_date
 
 
   def initialize(attrs = {}) #hash that allows you to have as many arguments as you want
@@ -16,10 +17,12 @@ class Account
   end
 
   def self.deactivate(account)
+    #Account.deactivate(object)
     account.account_status = :deactivated
   end
 
   def deactivate
+    #object.deactivate
     @account_status = :deactivated
   end
 

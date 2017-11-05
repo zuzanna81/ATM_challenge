@@ -5,7 +5,7 @@ attr_accessor :name, :cash, :account
 def initialize(attrs = {})
   @name = set_name(attrs[:name])
   @cash = 0
-  @account = nil
+  #@account = nil
 end
 
 def create_account
@@ -13,14 +13,18 @@ def create_account
 end
 
 def deposit(amount)
-    @account.nil? ? missing_account : deposit_funds(amount)
+  @account == nil ? missing_account : deposit_funds(amount)
+end
+
+def withdraw(args = { })
+  @account == nil ? missing_account : deposit_funds(args)
 end
 
 private
 
 def deposit_funds(amount)
-    @cash -= amount
-    @account.balance += amount
+  @cash -= amount
+  @account.balance += amount
 end
 
 def set_name(name)
@@ -30,6 +34,10 @@ end
 
 def missing_name
   raise 'A name is required'
+end
+
+def missing_account
+  raise RuntimeError, 'No account present'
 end
 
 end
